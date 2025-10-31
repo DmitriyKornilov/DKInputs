@@ -35,12 +35,12 @@ type
 var
   DKChooseForm: TDKChooseForm;
 
-  function Choose(const ATitle: String; const AItems: TStrVector;
+  function Choose(const AFormCaption, ATitle: String; const AItems: TStrVector;
                   out AChooseIndex: Integer;
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
 
-  function Choose(const ATitle1, ATitle2: String;
+  function Choose(const AFormCaption, ATitle1, ATitle2: String;
                   const AItems1, AItems2: TStrVector;
                   out AChooseIndex1, AChooseIndex2: Integer;
                   const AWidth: Integer = 0;
@@ -54,17 +54,17 @@ const
   MIN_FORM_WIDTH = 500;
   MIN_FORM_HEIGHT = 250;
 
-function Choose(const ATitle: String; const AItems: TStrVector;
+function Choose(const AFormCaption, ATitle: String; const AItems: TStrVector;
                   out AChooseIndex: Integer;
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
 var
   i: Integer;
 begin
-  Result:= Choose(ATitle, EmptyStr, AItems, nil, AChooseIndex, i, AWidth, AHeight);
+  Result:= Choose(AFormCaption, ATitle, EmptyStr, AItems, nil, AChooseIndex, i, AWidth, AHeight);
 end;
 
-function Choose(const ATitle1, ATitle2: String;
+function Choose(const AFormCaption, ATitle1, ATitle2: String;
                 const AItems1, AItems2: TStrVector;
                 out AChooseIndex1, AChooseIndex2: Integer;
                 const AWidth: Integer = 0;
@@ -79,6 +79,7 @@ begin
 
   Form:= TDKChooseForm.Create(nil);
   try
+    Form.Caption:= AFormCaption;
     List1:= TVSTStringList.Create(Form.VT1, ATitle1, nil);
     List2:= TVSTStringList.Create(Form.VT2, ATitle2, nil);
     try
