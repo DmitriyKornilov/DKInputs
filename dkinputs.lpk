@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <PathDelim Value="\"/>
+    <Name Value="DKInputs"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <IncludeFiles Value="source;source\png"/>
+        <OtherUnitFiles Value="source"/>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Files>
+      <Item>
+        <Filename Value="source\dk_choose.pas"/>
+        <UnitName Value="dk_choose"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_inputimages.lfm"/>
+        <Type Value="LFM"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_inputimages.pas"/>
+        <UnitName Value="DK_InputImages"/>
+      </Item>
+      <Item>
+        <Filename Value="source\png\check.png"/>
+        <Type Value="Binary"/>
+      </Item>
+      <Item>
+        <Filename Value="source\png\icons_info.txt"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="source\png\save.png"/>
+        <Type Value="Binary"/>
+      </Item>
+      <Item>
+        <Filename Value="source\png\undo.png"/>
+        <Type Value="Binary"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_choose.lfm"/>
+        <Type Value="LFM"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="DKVTUtils"/>
+      </Item>
+      <Item>
+        <PackageName Value="virtualtreeview_package"/>
+      </Item>
+      <Item>
+        <PackageName Value="DKUtils"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
