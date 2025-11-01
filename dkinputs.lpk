@@ -52,10 +52,21 @@
       </Item>
       <Item>
         <Filename Value="source\dk_inputconst.pas"/>
-        <UnitName Value="dk_inputconst"/>
+        <UnitName Value="DK_InputConst"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_integerinputform.pas"/>
+        <UnitName Value="DK_IntegerInputForm"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_integerinputform.lfm"/>
+        <Type Value="LFM"/>
       </Item>
     </Files>
     <RequiredPkgs>
+      <Item>
+        <PackageName Value="LazControlDsgn"/>
+      </Item>
       <Item>
         <PackageName Value="DKVTUtils"/>
       </Item>

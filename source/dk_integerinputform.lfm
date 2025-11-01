@@ -1,0 +1,120 @@
+object DKIntegerInputForm: TDKIntegerInputForm
+  Left = 738
+  Height = 190
+  Top = 229
+  Width = 396
+  Caption = 'Пробег локомотива'
+  ClientHeight = 190
+  ClientWidth = 396
+  DesignTimePPI = 120
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  object TitleLabel: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 20
+    Top = 6
+    Width = 384
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 6
+    BorderSpacing.Top = 6
+    BorderSpacing.Right = 6
+    Caption = 'Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object ButtonPanel: TPanel
+    AnchorSideTop.Side = asrBottom
+    Left = 2
+    Height = 48
+    Top = 136
+    Width = 392
+    Align = alBottom
+    Anchors = [akLeft, akRight]
+    AutoSize = True
+    BorderSpacing.Left = 2
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 6
+    BevelOuter = bvNone
+    ClientHeight = 48
+    ClientWidth = 392
+    TabOrder = 0
+    object CancelButton: TSpeedButton
+      AnchorSideTop.Control = ButtonPanelBevel
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = ButtonPanel
+      AnchorSideRight.Side = asrBottom
+      Cursor = crHandPoint
+      Left = 265
+      Height = 40
+      Top = 8
+      Width = 121
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      BorderSpacing.Right = 6
+      Caption = ' Отменить '
+      Images = DKInputImages.Glyphs24
+      ImageIndex = 1
+      Margin = 5
+      Spacing = 5
+      ParentFont = False
+      OnClick = CancelButtonClick
+    end
+    object SaveButton: TSpeedButton
+      AnchorSideTop.Control = CancelButton
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = CancelButton
+      Cursor = crHandPoint
+      Left = 134
+      Height = 40
+      Top = 8
+      Width = 131
+      Anchors = [akTop, akRight]
+      AutoSize = True
+      Caption = ' Сохранить  '
+      Images = DKInputImages.Glyphs24
+      ImageIndex = 2
+      Margin = 5
+      Spacing = 5
+      ParentFont = False
+      OnClick = SaveButtonClick
+    end
+    object ButtonPanelBevel: TBevel
+      Left = 0
+      Height = 8
+      Top = 0
+      Width = 392
+      Align = alTop
+      Shape = bsTopLine
+    end
+  end
+  object ValueEdit: TSpinEditEx
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = TitleLabel
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 28
+    Top = 38
+    Width = 384
+    Alignment = taLeftJustify
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 6
+    BorderSpacing.Top = 12
+    BorderSpacing.Right = 6
+    MaxLength = 0
+    NumbersOnly = True
+    SpinButtonWidth = 21
+    TabOrder = 1
+    NullValue = 0
+    Spacing = 5
+    UpDownVisible = False
+    Value = 0
+  end
+end

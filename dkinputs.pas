@@ -8,7 +8,8 @@ unit DKInputs;
 interface
 
 uses
-  DK_ChooseForm, DK_InputImages, DK_Inputs, DK_InputConst, LazarusPackageIntf;
+  DK_ChooseForm, DK_InputImages, DK_Inputs, DK_InputConst, 
+  DK_IntegerInputForm, LazarusPackageIntf;
 
 implementation
 

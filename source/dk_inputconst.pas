@@ -4,14 +4,32 @@ unit DK_InputConst;
 
 interface
 
-//uses
-//  Classes, SysUtils;
+uses
+  Forms;//  Classes, SysUtils;
 
 const
   MIN_FORM_WIDTH = 500;
   MIN_FORM_HEIGHT = 250;
 
+  procedure SetFormSizeAndCaption(const AForm: TForm;
+                                  const ACaption: String;
+                                  const AWidth, AHeight: Integer);
+
 implementation
+
+procedure SetFormSizeAndCaption(const AForm: TForm;
+                                const ACaption: String;
+                                const AWidth, AHeight: Integer);
+begin
+  AForm.Caption:= ACaption;
+  if ACaption='APP_TITLE' then
+    AForm.Caption:= Application.Title;
+
+  if AWidth>MIN_FORM_WIDTH then
+    AForm.Width:= AWidth;
+  if AHeight>MIN_FORM_HEIGHT then
+    AForm.Height:= AHeight;
+end;
 
 end.
 
