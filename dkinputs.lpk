@@ -15,8 +15,8 @@
     </CompilerOptions>
     <Files>
       <Item>
-        <Filename Value="source\dk_choose.pas"/>
-        <UnitName Value="dk_choose"/>
+        <Filename Value="source\dk_chooseform.pas"/>
+        <UnitName Value="DK_ChooseForm"/>
       </Item>
       <Item>
         <Filename Value="source\dk_inputimages.lfm"/>
@@ -43,8 +43,16 @@
         <Type Value="Binary"/>
       </Item>
       <Item>
-        <Filename Value="source\dk_choose.lfm"/>
+        <Filename Value="source\dk_inputs.pas"/>
+        <UnitName Value="DK_Inputs"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_chooseform.lfm"/>
         <Type Value="LFM"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_inputconst.pas"/>
+        <UnitName Value="dk_inputconst"/>
       </Item>
     </Files>
     <RequiredPkgs>
