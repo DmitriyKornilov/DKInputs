@@ -9,6 +9,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
   DesignTimePPI = 120
   Position = poScreenCenter
   OnCreate = FormCreate
+  OnShow = FormShow
   object TitleLabel: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner

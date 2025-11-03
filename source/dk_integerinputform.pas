@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
   Buttons,
 
-  DK_Math, DK_SpinEdit, DK_InputImages, DK_InputConst;
+  DK_Math, DK_CtrlUtils, DK_SpinEdit, DK_InputImages, DK_InputConst;
 
 type
 
@@ -22,6 +22,7 @@ type
     TitleLabel: TLabel;
     procedure CancelButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure SaveButtonClick(Sender: TObject);
   private
 
@@ -109,6 +110,14 @@ begin
   DKInputImages:= TDKInputImages.Create(Self);
   Width:= MIN_FORM_WIDTH;
   Height:= MIN_FORM_HEIGHT;
+end;
+
+procedure TDKIntegerInputForm.FormShow(Sender: TObject);
+begin
+  DKInputImages.ToButtons([SaveButton, CancelButton]);
+  SetEventButtons([SaveButton, CancelButton]);
+  FormKeepMinSize(Self, False);
+  FormToScreenCenter(Self);
 end;
 
 procedure TDKIntegerInputForm.SaveButtonClick(Sender: TObject);
