@@ -14,14 +14,14 @@ object DKIntegerInputForm: TDKIntegerInputForm
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 6
+    Left = 8
     Height = 20
-    Top = 6
-    Width = 384
+    Top = 8
+    Width = 380
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Left = 6
-    BorderSpacing.Top = 6
-    BorderSpacing.Right = 6
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
     Caption = 'Title'
     Font.Style = [fsBold]
     ParentColor = False
@@ -32,14 +32,15 @@ object DKIntegerInputForm: TDKIntegerInputForm
     AnchorSideTop.Side = asrBottom
     Left = 2
     Height = 48
-    Top = 136
+    Top = 134
     Width = 392
     Align = alBottom
     Anchors = [akLeft, akRight]
     AutoSize = True
     BorderSpacing.Left = 2
+    BorderSpacing.Top = 8
     BorderSpacing.Right = 2
-    BorderSpacing.Bottom = 6
+    BorderSpacing.Bottom = 8
     BevelOuter = bvNone
     ClientHeight = 48
     ClientWidth = 392
@@ -92,29 +93,5 @@ object DKIntegerInputForm: TDKIntegerInputForm
       Align = alTop
       Shape = bsTopLine
     end
-  end
-  object ValueEdit: TSpinEditEx
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = TitleLabel
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 6
-    Height = 28
-    Top = 38
-    Width = 384
-    Alignment = taLeftJustify
-    Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Left = 6
-    BorderSpacing.Top = 12
-    BorderSpacing.Right = 6
-    MaxLength = 0
-    NumbersOnly = True
-    SpinButtonWidth = 21
-    TabOrder = 1
-    NullValue = 0
-    Spacing = 5
-    UpDownVisible = False
-    Value = 0
   end
 end

@@ -6,9 +6,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  Buttons, SpinEx,
+  Buttons,
 
-  DK_InputImages, DK_InputConst;
+  DK_Math, DK_SpinEdit, DK_InputImages, DK_InputConst;
 
 type
 
@@ -19,7 +19,6 @@ type
     ButtonPanelBevel: TBevel;
     CancelButton: TSpeedButton;
     SaveButton: TSpeedButton;
-    ValueEdit: TSpinEditEx;
     TitleLabel: TLabel;
     procedure CancelButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -27,64 +26,75 @@ type
   private
 
   public
-    LogID: Integer;
+
   end;
 
 
-  function DoInputInteger(const ATitle: String;
-                  var AValue: Integer;
-                  const AMinValue: Integer = 0;
-                  const AMaxValue: Integer = 0;
+  function DoInputInt64(const ATitle: String;
+                  var AValue: Int64;
+                  const AMinValue: Int64 = 0;
+                  const AMaxValue: Int64 = 0;
+                  const AIncrement: Int64 = 1;
                   const ACaption: String = '';
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
-
 
 implementation
 
 {$R *.lfm}
 
-procedure SetFormParams(const AForm: TDKIntegerInputForm;
-                        const ATitle, ACaption: String;
-                        const AWidth, AHeight: Integer);
-begin
-  SetFormSizeAndCaption(AForm, ACaption, AWidth, AHeight);
-  AForm.TitleLabel.Caption:= ATitle;
-end;
-
-procedure SetValueInteger(const AEdit: TSpinEditEx; const AValue, AMinValue, AMaxValue: Integer);
-begin
-  AEdit.MinValue:= Integer.MinValue;
-  AEdit.MaxValue:= Integer.MinValue;
-
-  if (AMinValue<>0) and (AMinValue>AEdit.MinValue) then
-    AEdit.MinValue:= AMinValue;
-  if (AMaxValue<>0) and (AMaxValue<AEdit.MaxValue) then
-    AEdit.MaxValue:= AMaxValue;
-
-  AEdit.Value:= AValue;
-end;
-
-function DoInputInteger(const ATitle: String;
-                  var AValue: Integer;
-                  const AMinValue: Integer = 0;
-                  const AMaxValue: Integer = 0;
+function DoInputInt64(const ATitle: String;
+                  var AValue: Int64;
+                  const AMinValue: Int64 = 0;
+                  const AMaxValue: Int64 = 0;
+                  const AIncrement: Int64 = 1;
                   const ACaption: String = '';
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
 var
   Form: TDKIntegerInputForm;
+  SpinEdit: TDKSpinEdit;
+
+  procedure SpinEditCreate;
+  begin
+    SpinEdit:= TDKSpinEdit.Create(Form);
+    SpinEdit.Parent:= Form;
+    SpinEdit.AnchorSide[akTop].Side:= asrBottom;
+    SpinEdit.AnchorSide[akTop].Control:= Form.TitleLabel;
+    SpinEdit.BorderSpacing.Top:= 12;
+    SpinEdit.AnchorSide[akLeft].Side:= asrLeft;
+    SpinEdit.AnchorSide[akLeft].Control:= Form;
+    SpinEdit.BorderSpacing.Left:= 8;
+    SpinEdit.AnchorSide[akRight].Side:= asrRight;
+    SpinEdit.AnchorSide[akRight].Control:= Form;
+    SpinEdit.BorderSpacing.Right:= 8;
+    SpinEdit.Anchors:= [akLeft, akTop, akRight];
+
+    if AMinValue<>0 then
+      SpinEdit.MinValue:= Max(AMinValue, Int64.MinValue)
+    else
+      SpinEdit.MinValue:= Int64.MinValue;
+    if AMaxValue<>0 then
+      SpinEdit.MaxValue:= Min(AMaxValue, Int64.MaxValue)
+    else
+      SpinEdit.MaxValue:= Int64.MaxValue;
+    SpinEdit.Value:= AValue;
+    SpinEdit.Increment:= AIncrement;
+  end;
+
 begin
   Result:= False;
 
   Form:= TDKIntegerInputForm.Create(nil);
   try
-    SetFormParams(Form, ATitle, ACaption, AWidth, AHeight);
-    SetValueInteger(Form.ValueEdit, AValue, AMinValue, AMaxValue);
+    SetFormSizeAndCaption(Form, ACaption, AWidth, AHeight);
+    Form.TitleLabel.Caption:= ATitle;
+
+    SpinEditCreate;
 
     if Form.ShowModal=mrOK then
     begin
-      AValue:= Form.ValueEdit.Value;
+      AValue:= SpinEdit.Value;
       Result:= True;
     end;
   finally

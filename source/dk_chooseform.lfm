@@ -17,7 +17,7 @@ object DKChooseForm: TDKChooseForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = ButtonPanel
     Left = 8
-    Height = 220
+    Height = 218
     Top = 8
     Width = 584
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -27,7 +27,7 @@ object DKChooseForm: TDKChooseForm
     BorderSpacing.Bottom = 8
     BevelOuter = bvNone
     BorderStyle = bsSingle
-    ClientHeight = 216
+    ClientHeight = 214
     ClientWidth = 580
     Color = clWindow
     ParentBackground = False
@@ -66,14 +66,15 @@ object DKChooseForm: TDKChooseForm
     AnchorSideTop.Side = asrBottom
     Left = 2
     Height = 48
-    Top = 236
+    Top = 234
     Width = 596
     Align = alBottom
     Anchors = [akLeft, akRight]
     AutoSize = True
     BorderSpacing.Left = 2
+    BorderSpacing.Top = 8
     BorderSpacing.Right = 2
-    BorderSpacing.Bottom = 6
+    BorderSpacing.Bottom = 8
     BevelOuter = bvNone
     ClientHeight = 48
     ClientWidth = 596

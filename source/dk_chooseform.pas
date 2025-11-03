@@ -65,6 +65,8 @@ begin
 
   Form:= TDKChooseForm.Create(nil);
   try
+    SetFormSizeAndCaption(Form, ACaption, AWidth, AHeight);
+
     List1:= TVSTStringList.Create(Form.VT1, ATitle1, nil);
     List1.AutoHeight:= True;
     List1.Update(AItems1);
@@ -82,15 +84,6 @@ begin
       List2.Select(AChooseIndex2);
     end;
 
-    SetFormSizeAndCaption(Form, ACaption, AWidth, AHeight);
-    //Form.Caption:= ACaption;
-    //if AWidth>MIN_FORM_WIDTH then
-    //  Form.Width:= AWidth;
-    //if AHeight>MIN_FORM_HEIGHT then
-    //  Form.Height:= AHeight;
-    //
-    //if Caption='APP_TITLE' then
-    //Caption:= Application.Title;
     if Form.ShowModal=mrOK then
     begin
       AChooseIndex1:= List1.SelectedIndex;
@@ -104,41 +97,6 @@ begin
     if Assigned(List2) then FreeAndNil(List2);
     FreeAndNil(Form);
   end;
-
-  //Form:= TDKChooseForm.Create(nil);
-  //try
-  //  Form.Caption:= ACaption;
-  //  List1:= TVSTStringList.Create(Form.VT1, ATitle1, nil);
-  //  List2:= TVSTStringList.Create(Form.VT2, ATitle2, nil);
-  //  try
-  //    List1.AutoHeight:= True;
-  //    List1.Update(AItems1);
-  //    if VIsNil(AItems2) then
-  //      Form.VT2.Visible:= False
-  //    else begin
-  //      List2.AutoHeight:= True;
-  //      List2.Update(AItems2);
-  //    end;
-  //
-  //    if AWidth>MIN_FORM_WIDTH then
-  //      Form.Width:= AWidth;
-  //    if AHeight>MIN_FORM_HEIGHT then
-  //      Form.Height:= AHeight;
-  //
-  //    if Form.ShowModal=mrOK then
-  //    begin
-  //      AChooseIndex1:= List1.SelectedIndex;
-  //      AChooseIndex2:= List2.SelectedIndex;
-  //      Result:= True;
-  //    end;
-  //
-  //  finally
-  //    FreeAndNil(List1);
-  //    FreeAndNil(List2);
-  //  end;
-  //finally
-  //  FreeAndNil(Form);
-  //end;
 end;
 
 
