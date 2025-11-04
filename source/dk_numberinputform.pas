@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
   Buttons, Spin,
 
-  DK_Math, DK_CtrlUtils, DK_SpinEdit, DK_InputImages, DK_InputUtils;
+  DK_SpinEdit, DK_Math, DK_CtrlUtils, DK_InputImages, DK_InputUtils;
 
 type
 

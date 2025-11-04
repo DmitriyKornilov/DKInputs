@@ -1,68 +1,14 @@
-object DKChooseForm: TDKChooseForm
-  Left = 562
+object DKTextInputForm: TDKTextInputForm
+  Left = 457
   Height = 300
-  Top = 298
+  Top = 250
   Width = 600
-  BorderIcons = [biSystemMenu]
-  Caption = 'Выбор'
+  Caption = 'Текст'
   ClientHeight = 300
   ClientWidth = 600
   DesignTimePPI = 120
   OnCreate = FormCreate
   OnShow = FormShow
-  object MainPanel: TPanel
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = ButtonPanel
-    Left = 8
-    Height = 228
-    Top = 8
-    Width = 584
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Left = 8
-    BorderSpacing.Top = 8
-    BorderSpacing.Right = 8
-    BorderSpacing.Bottom = 8
-    BevelOuter = bvNone
-    BorderStyle = bsSingle
-    ClientHeight = 224
-    ClientWidth = 580
-    Color = clWindow
-    ParentBackground = False
-    ParentColor = False
-    TabOrder = 0
-    object VT1: TVirtualStringTree
-      Left = 0
-      Height = 102
-      Top = 0
-      Width = 580
-      Align = alTop
-      Anchors = []
-      BorderStyle = bsNone
-      DefaultText = 'Node'
-      Header.AutoSizeIndex = 0
-      Header.Columns = <>
-      Header.MainColumn = -1
-      TabOrder = 0
-    end
-    object VT2: TVirtualStringTree
-      Left = 0
-      Height = 40
-      Top = 102
-      Width = 580
-      Align = alTop
-      Anchors = []
-      BorderStyle = bsNone
-      DefaultText = 'Node'
-      Header.AutoSizeIndex = 0
-      Header.Columns = <>
-      Header.MainColumn = -1
-      TabOrder = 1
-      Visible = False
-    end
-  end
   object ButtonPanel: TPanel
     AnchorSideTop.Side = asrBottom
     Left = 2
@@ -79,7 +25,7 @@ object DKChooseForm: TDKChooseForm
     BevelOuter = bvNone
     ClientHeight = 48
     ClientWidth = 596
-    TabOrder = 1
+    TabOrder = 0
     object CancelButton: TSpeedButton
       AnchorSideTop.Control = ButtonPanelBevel
       AnchorSideTop.Side = asrBottom
@@ -106,15 +52,15 @@ object DKChooseForm: TDKChooseForm
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = CancelButton
       Cursor = crHandPoint
-      Left = 352
+      Left = 338
       Height = 40
       Top = 8
-      Width = 117
+      Width = 131
       Anchors = [akTop, akRight]
       AutoSize = True
-      Caption = ' Выбрать  '
+      Caption = ' Сохранить  '
       Images = DKInputImages.Glyphs24
-      ImageIndex = 0
+      ImageIndex = 2
       Margin = 5
       Spacing = 5
       ParentFont = False
@@ -128,5 +74,41 @@ object DKChooseForm: TDKChooseForm
       Align = alTop
       Shape = bsTopLine
     end
+  end
+  object TitleLabel: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 8
+    Height = 20
+    Top = 8
+    Width = 584
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    Caption = 'Title'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object TextMemo: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = TitleLabel
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = ButtonPanel
+    Left = 8
+    Height = 196
+    Top = 40
+    Width = 584
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 12
+    BorderSpacing.Right = 8
+    TabOrder = 1
   end
 end

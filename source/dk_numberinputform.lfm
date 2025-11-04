@@ -3,7 +3,7 @@ object DKNumberInputForm: TDKNumberInputForm
   Height = 190
   Top = 229
   Width = 400
-  Caption = 'Пробег локомотива'
+  Caption = 'Число'
   ClientHeight = 190
   ClientWidth = 400
   DesignTimePPI = 120

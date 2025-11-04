@@ -56,10 +56,18 @@
       </Item>
       <Item>
         <Filename Value="source\dk_numberinputform.pas"/>
-        <UnitName Value="dk_numberinputform"/>
+        <UnitName Value="DK_NumberInputForm"/>
       </Item>
       <Item>
         <Filename Value="source\dk_numberinputform.lfm"/>
+        <Type Value="LFM"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_textinputform.pas"/>
+        <UnitName Value="dk_textinputform"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_textinputform.lfm"/>
         <Type Value="LFM"/>
       </Item>
     </Files>

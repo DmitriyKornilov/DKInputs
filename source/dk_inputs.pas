@@ -9,7 +9,7 @@ uses
 
   DK_Vector, DK_Math,
 
-  DK_ChooseForm, DK_NumberInputForm;
+  DK_ChooseForm, DK_NumberInputForm, DK_TextInputForm;
 
   {ОКНО С ВЫБОРОМ ИЗ ОДНОГО СПИСКА
    Кнопки   : "Выбрать" [Result=True], "Отменить" [Result=False]
@@ -52,7 +52,7 @@ uses
   {ОКНО С ВВОДОМ ЧИСЛА Integer, Int64, Single, Double (SpinEdit)
    Кнопки   : "Сохранить" [Result=True], "Отменить" [Result=False]
    Параметры:
-     ATitle     - заголовок списка
+     ATitle     - заголовок поля ввода числа
      AMinValue  - минимально возможное значение вводимого числа
      AMaxValue  - максимально возможное значение вводимого числа
      AIncrement - значение приращения числа при нажатии кнопок Up/Down
@@ -109,6 +109,30 @@ uses
                   var AValue: Double;
                   const ADecimalPlaces: Integer;
                   const AMinValue, AMaxValue, AIncrement: Double;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+
+  {ОКНО С ВВОДОМ ТЕКСТА
+   Кнопки   : "Сохранить" [Result=True], "Отменить" [Result=False]
+   Параметры:
+     ATitle     - заголовок поля ввода текста
+     ACaption   - заголовок окна сообщения (если='APP_TITLE' - наименование приложения)
+     AWidth     - ширина окна (если<DK_InputConst.MIN_FORM_WIDTH, то DK_InputConst.MIN_FORM_WIDTH)
+     AHeight    - выстота окна - автом. подбирается по высоте списка
+                  (если=<DK_InputConst.MIN_FORM_HEIGHT, то DK_InputConst.MIN_FORM_HEIGHT)
+
+     ALines     - вектор значений строк текста
+     или
+     AText      - текст в виде одной строки
+   }
+  function InputText(const ATitle: String;
+                  var ALines: TStrVector;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+  function InputText(const ATitle: String;
+                  var AText: String;
                   const ACaption: String = '';
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
@@ -269,6 +293,24 @@ function InputDouble(const ATitle: String;
 begin
   Result:= DoInputDouble(ATitle, AValue, ADecimalPlaces, AMinValue, AMaxValue, AIncrement,
                         ACaption, AWidth, AHeight);
+end;
+
+function InputText(const ATitle: String;
+                  var ALines: TStrVector;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+begin
+  Result:= DoInputText(ATitle, ALines, ACaption, AWidth, AHeight);
+end;
+
+function InputText(const ATitle: String;
+                  var AText: String;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+begin
+  Result:= DoInputText(ATitle, AText, ACaption, AWidth, AHeight);
 end;
 
 end.
