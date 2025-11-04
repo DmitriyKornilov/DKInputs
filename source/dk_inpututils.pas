@@ -1,4 +1,4 @@
-unit DK_InputConst;
+unit DK_InputUtils;
 
 {$mode objfpc}{$H+}
 
@@ -8,7 +8,7 @@ uses
   Forms;//  Classes, SysUtils;
 
 const
-  MIN_FORM_WIDTH = 500;
+  MIN_FORM_WIDTH = 400;
   MIN_FORM_HEIGHT = 250;
 
   procedure SetFormSizeAndCaption(const AForm: TForm;

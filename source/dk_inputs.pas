@@ -9,7 +9,7 @@ uses
 
   DK_Vector, DK_Math,
 
-  DK_ChooseForm, DK_IntegerInputForm;
+  DK_ChooseForm, DK_NumberInputForm;
 
   {ОКНО С ВЫБОРОМ ИЗ ОДНОГО СПИСКА
    Кнопки   : "Выбрать" [Result=True], "Отменить" [Result=False]
@@ -49,7 +49,7 @@ uses
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
 
-  {ОКНО С ВВОДОМ ЧИСЛА Integer или Int64 (SpinEdit)
+  {ОКНО С ВВОДОМ ЧИСЛА Integer, Int64, Single, Double (SpinEdit)
    Кнопки   : "Сохранить" [Result=True], "Отменить" [Result=False]
    Параметры:
      ATitle     - заголовок списка
@@ -82,6 +82,33 @@ uses
   function InputInt64(const ATitle: String;
                   var AValue: Int64;
                   const AMinValue, AMaxValue, AIncrement: Int64;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+  function InputSingle(const ATitle: String;
+                  var AValue: Single;
+                  const ADecimalPlaces: Integer = 2;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+  function InputSingle(const ATitle: String;
+                  var AValue: Single;
+                  const ADecimalPlaces: Integer;
+                  const AMinValue, AMaxValue: Single;
+                  const AIncrement: Double;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+  function InputDouble(const ATitle: String;
+                  var AValue: Double;
+                  const ADecimalPlaces: Integer = 2;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+  function InputDouble(const ATitle: String;
+                  var AValue: Double;
+                  const ADecimalPlaces: Integer;
+                  const AMinValue, AMaxValue, AIncrement: Double;
                   const ACaption: String = '';
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
@@ -173,6 +200,74 @@ function InputInt64(const ATitle: String;
                 const AHeight: Integer = 0): Boolean;
 begin
   Result:= DoInputInt64(ATitle, AValue, AMinValue, AMaxValue, AIncrement,
+                        ACaption, AWidth, AHeight);
+end;
+
+function InputSingle(const ATitle: String;
+                  var AValue: Single;
+                  const ADecimalPlaces: Integer = 2;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+var
+  MinValue, MaxValue: Single;
+  Value: Double;
+begin
+  MinValue:= Single.MinValue;
+  MaxValue:= Single.MaxValue;
+
+  Value:= AValue;
+  Result:= DoInputDouble(ATitle, Value, ADecimalPlaces, MinValue, MaxValue, 1,
+                        ACaption, AWidth, AHeight);
+  AValue:= Value;
+end;
+
+function InputSingle(const ATitle: String;
+                var AValue: Single;
+                const ADecimalPlaces: Integer;
+                const AMinValue, AMaxValue: Single;
+                const AIncrement: Double;
+                const ACaption: String = '';
+                const AWidth: Integer = 0;
+                const AHeight: Integer = 0): Boolean;
+var
+  MinValue, MaxValue: Single;
+  Value: Double;
+begin
+  if AMinValue<>0 then
+    MinValue:= Max(AMinValue, Single.MinValue)
+  else
+    MinValue:= Single.MinValue;
+  if AMaxValue<>0 then
+    MaxValue:= Min(AMaxValue, Single.MaxValue)
+  else
+    MaxValue:= Single.MaxValue;
+
+  Value:= AValue;
+  Result:= DoInputDouble(ATitle, Value, ADecimalPlaces, MinValue, MaxValue, AIncrement,
+                        ACaption, AWidth, AHeight);
+  AValue:= Value;
+end;
+
+function InputDouble(const ATitle: String;
+                  var AValue: Double;
+                  const ADecimalPlaces: Integer = 2;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+begin
+  Result:= DoInputDouble(ATitle, AValue, ADecimalPlaces, 0, 0, 1, ACaption, AWidth, AHeight);
+end;
+
+function InputDouble(const ATitle: String;
+                  var AValue: Double;
+                  const ADecimalPlaces: Integer;
+                  const AMinValue, AMaxValue, AIncrement: Double;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+begin
+  Result:= DoInputDouble(ATitle, AValue, ADecimalPlaces, AMinValue, AMaxValue, AIncrement,
                         ACaption, AWidth, AHeight);
 end;
 

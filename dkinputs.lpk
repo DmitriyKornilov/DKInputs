@@ -51,15 +51,15 @@
         <Type Value="LFM"/>
       </Item>
       <Item>
-        <Filename Value="source\dk_inputconst.pas"/>
-        <UnitName Value="DK_InputConst"/>
+        <Filename Value="source\dk_inpututils.pas"/>
+        <UnitName Value="DK_InputUtils"/>
       </Item>
       <Item>
-        <Filename Value="source\dk_integerinputform.pas"/>
-        <UnitName Value="DK_IntegerInputForm"/>
+        <Filename Value="source\dk_numberinputform.pas"/>
+        <UnitName Value="dk_numberinputform"/>
       </Item>
       <Item>
-        <Filename Value="source\dk_integerinputform.lfm"/>
+        <Filename Value="source\dk_numberinputform.lfm"/>
         <Type Value="LFM"/>
       </Item>
     </Files>

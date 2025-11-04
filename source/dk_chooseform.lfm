@@ -8,6 +8,7 @@ object DKChooseForm: TDKChooseForm
   ClientHeight = 290
   ClientWidth = 600
   DesignTimePPI = 120
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   OnShow = FormShow
   object MainPanel: TPanel
@@ -27,8 +28,8 @@ object DKChooseForm: TDKChooseForm
     BorderSpacing.Bottom = 8
     BevelOuter = bvNone
     BorderStyle = bsSingle
-    ClientHeight = 214
-    ClientWidth = 580
+    ClientHeight = 218
+    ClientWidth = 584
     Color = clWindow
     ParentBackground = False
     ParentColor = False
@@ -60,6 +61,7 @@ object DKChooseForm: TDKChooseForm
       Header.Columns = <>
       Header.MainColumn = -1
       TabOrder = 1
+      Visible = False
     end
   end
   object ButtonPanel: TPanel

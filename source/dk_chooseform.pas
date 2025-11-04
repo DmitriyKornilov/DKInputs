@@ -10,7 +10,7 @@ uses
 
   DK_CtrlUtils, DK_Vector, DK_VSTTableTools,
 
-  DK_InputImages, DK_InputConst;
+  DK_InputImages, DK_InputUtils;
 
 type
 
@@ -72,33 +72,32 @@ begin
     List1.Update(AItems1);
     List1.Select(AChooseIndex1);
 
-    if VIsNil(AItems2) then
+    if not VIsNil(AItems2) then
     begin
-      Form.VT2.Visible:= False;
-      AChooseIndex2:= -1;
-    end
-    else begin
+      Form.VT2.Visible:= True;
       List2:= TVSTStringList.Create(Form.VT2, ATitle2, nil);
       List2.AutoHeight:= True;
       List2.Update(AItems2);
       List2.Select(AChooseIndex2);
     end;
 
+    AChooseIndex1:= -1;
+    AChooseIndex2:= -1;
+
     if Form.ShowModal=mrOK then
     begin
       AChooseIndex1:= List1.SelectedIndex;
-      if Assigned(List2) then
+      if not VIsNil(AItems2) then
         AChooseIndex2:= List2.SelectedIndex;
       Result:= True;
     end;
 
   finally
-    if Assigned(List1) then FreeAndNil(List1);
-    if Assigned(List2) then FreeAndNil(List2);
+    FreeAndNil(List1);
+    if not VIsNil(AItems2) then FreeAndNil(List2);
     FreeAndNil(Form);
   end;
 end;
-
 
 { TDKChooseForm }
 

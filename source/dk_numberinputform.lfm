@@ -1,11 +1,11 @@
-object DKIntegerInputForm: TDKIntegerInputForm
+object DKNumberInputForm: TDKNumberInputForm
   Left = 738
   Height = 190
   Top = 229
-  Width = 396
+  Width = 400
   Caption = 'Пробег локомотива'
   ClientHeight = 190
-  ClientWidth = 396
+  ClientWidth = 400
   DesignTimePPI = 120
   Position = poScreenCenter
   OnCreate = FormCreate
@@ -18,7 +18,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
     Left = 8
     Height = 20
     Top = 8
-    Width = 380
+    Width = 384
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 8
     BorderSpacing.Top = 8
@@ -34,7 +34,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
     Left = 2
     Height = 48
     Top = 134
-    Width = 392
+    Width = 396
     Align = alBottom
     Anchors = [akLeft, akRight]
     AutoSize = True
@@ -44,7 +44,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
     BorderSpacing.Bottom = 8
     BevelOuter = bvNone
     ClientHeight = 48
-    ClientWidth = 392
+    ClientWidth = 396
     TabOrder = 0
     object CancelButton: TSpeedButton
       AnchorSideTop.Control = ButtonPanelBevel
@@ -52,7 +52,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
       AnchorSideRight.Control = ButtonPanel
       AnchorSideRight.Side = asrBottom
       Cursor = crHandPoint
-      Left = 265
+      Left = 269
       Height = 40
       Top = 8
       Width = 121
@@ -72,7 +72,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = CancelButton
       Cursor = crHandPoint
-      Left = 134
+      Left = 138
       Height = 40
       Top = 8
       Width = 131
@@ -90,7 +90,7 @@ object DKIntegerInputForm: TDKIntegerInputForm
       Left = 0
       Height = 8
       Top = 0
-      Width = 392
+      Width = 396
       Align = alTop
       Shape = bsTopLine
     end
