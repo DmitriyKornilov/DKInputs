@@ -8,8 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   DateTimePicker, Buttons, DateUtils,
 
-  DK_Math, DK_Const, DK_DateUtils, DK_CtrlUtils, DK_Dialogs,
-  DK_InputImages, DK_InputUtils;
+  DK_Math, DK_Const, DK_CtrlUtils, DK_Dialogs, DK_InputImages, DK_InputUtils;
 
 type
 
