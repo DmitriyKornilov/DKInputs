@@ -11,6 +11,9 @@ const
   MIN_FORM_WIDTH = 400;
   MIN_FORM_HEIGHT = 250;
 
+  BORDER_SPACING_HORIZONTAL = 8;
+  BORDER_SPACING_VERTICAL   = 12;
+
   procedure SetFormSizeAndCaption(const AForm: TForm;
                                   const ACaption: String;
                                   const AWidth, AHeight: Integer);

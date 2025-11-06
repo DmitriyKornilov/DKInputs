@@ -9,7 +9,7 @@ uses
 
   DK_Vector, DK_Math,
 
-  DK_ChooseForm, DK_NumberInputForm, DK_TextInputForm;
+  DK_ChooseForm, DK_NumberInputForm, DK_TextInputForm, DK_DateRangeInputForm;
 
   {ОКНО С ВЫБОРОМ ИЗ ОДНОГО СПИСКА
    Кнопки   : "Выбрать" [Result=True], "Отменить" [Result=False]
@@ -133,6 +133,30 @@ uses
                   const AHeight: Integer = 0): Boolean;
   function InputText(const ATitle: String;
                   var AText: String;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+
+  {ОКНО С ВВОДОМ ДИАПАЗОНА ДАТ
+   Кнопки   : "Сохранить" [Result=True], "Отменить" [Result=False]
+   Параметры:
+     ATitle      - общий заголовок диапазона дат
+     ADate1Title - загловок label перед начальной датой
+     ADate2Title - загловок checkbox перед конечной датой
+     ACaption   - заголовок окна сообщения (если='APP_TITLE' - наименование приложения)
+     AWidth     - ширина окна (если<DK_InputConst.MIN_FORM_WIDTH, то DK_InputConst.MIN_FORM_WIDTH)
+     AHeight    - выстота окна - автом. подбирается по высоте списка
+                  (если=<DK_InputConst.MIN_FORM_HEIGHT, то DK_InputConst.MIN_FORM_HEIGHT)
+
+     AIsUsedDate2 - флаг использования конечной даты (если False, то ADate2=INFDATE(31/12/9999))
+     ADate1       - начальная дата диапазона
+     ADate2       - конечная дата диапазона
+   }
+  function InputDateRange(const ATitle, ADate1Title, ADate2Title: String;
+                  var AIsUsedDate2: Boolean;
+                  var ADate1, ADate2: TDate;
+                  const AMinDate: TDate = 0;
+                  const AMaxDate: TDate = 0;
                   const ACaption: String = '';
                   const AWidth: Integer = 0;
                   const AHeight: Integer = 0): Boolean;
@@ -311,6 +335,20 @@ function InputText(const ATitle: String;
                   const AHeight: Integer = 0): Boolean;
 begin
   Result:= DoInputText(ATitle, AText, ACaption, AWidth, AHeight);
+end;
+
+function InputDateRange(const ATitle, ADate1Title, ADate2Title: String;
+                  var AIsUsedDate2: Boolean;
+                  var ADate1, ADate2: TDate;
+                  const AMinDate: TDate = 0;
+                  const AMaxDate: TDate = 0;
+                  const ACaption: String = '';
+                  const AWidth: Integer = 0;
+                  const AHeight: Integer = 0): Boolean;
+begin
+  Result:= DoInputDateRange(ATitle, ADate1Title, ADate2Title, AIsUsedDate2,
+                            ADate1, ADate2, AMinDate, AMaxDate,
+                            ACaption, AWidth, AHeight);
 end;
 
 end.

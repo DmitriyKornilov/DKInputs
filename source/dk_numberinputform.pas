@@ -59,13 +59,13 @@ begin
   ASpinEdit.Parent:= AForm;
   ASpinEdit.AnchorSide[akTop].Side:= asrBottom;
   ASpinEdit.AnchorSide[akTop].Control:= AForm.TitleLabel;
-  ASpinEdit.BorderSpacing.Top:= 12;
+  ASpinEdit.BorderSpacing.Top:= BORDER_SPACING_VERTICAL;
   ASpinEdit.AnchorSide[akLeft].Side:= asrLeft;
   ASpinEdit.AnchorSide[akLeft].Control:= AForm;
-  ASpinEdit.BorderSpacing.Left:= 8;
+  ASpinEdit.BorderSpacing.Left:= BORDER_SPACING_HORIZONTAL;
   ASpinEdit.AnchorSide[akRight].Side:= asrRight;
   ASpinEdit.AnchorSide[akRight].Control:= AForm;
-  ASpinEdit.BorderSpacing.Right:= 8;
+  ASpinEdit.BorderSpacing.Right:= BORDER_SPACING_HORIZONTAL;
   ASpinEdit.Anchors:= [akLeft, akTop, akRight];
 end;
 

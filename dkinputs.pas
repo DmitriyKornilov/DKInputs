@@ -9,7 +9,7 @@ interface
 
 uses
   DK_ChooseForm, DK_InputImages, DK_Inputs, DK_InputUtils, DK_NumberInputForm, 
-  DK_TextInputForm, LazarusPackageIntf;
+  DK_TextInputForm, DK_DateRangeInputForm, LazarusPackageIntf;
 
 implementation
 

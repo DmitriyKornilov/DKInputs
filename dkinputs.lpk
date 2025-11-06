@@ -64,14 +64,25 @@
       </Item>
       <Item>
         <Filename Value="source\dk_textinputform.pas"/>
-        <UnitName Value="dk_textinputform"/>
+        <UnitName Value="DK_TextInputForm"/>
       </Item>
       <Item>
         <Filename Value="source\dk_textinputform.lfm"/>
         <Type Value="LFM"/>
       </Item>
+      <Item>
+        <Filename Value="source\dk_daterangeinputform.pas"/>
+        <UnitName Value="dk_daterangeinputform"/>
+      </Item>
+      <Item>
+        <Filename Value="source\dk_daterangeinputform.lfm"/>
+        <Type Value="LFM"/>
+      </Item>
     </Files>
     <RequiredPkgs>
+      <Item>
+        <PackageName Value="DateTimeCtrlsDsgn"/>
+      </Item>
       <Item>
         <PackageName Value="DKUIUtils"/>
       </Item>
