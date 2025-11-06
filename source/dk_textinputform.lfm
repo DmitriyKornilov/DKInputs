@@ -3,6 +3,7 @@ object DKTextInputForm: TDKTextInputForm
   Height = 300
   Top = 250
   Width = 600
+  BorderIcons = [biSystemMenu]
   Caption = 'Текст'
   ClientHeight = 300
   ClientWidth = 600

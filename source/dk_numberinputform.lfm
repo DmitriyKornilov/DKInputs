@@ -3,6 +3,7 @@ object DKNumberInputForm: TDKNumberInputForm
   Height = 190
   Top = 229
   Width = 400
+  BorderIcons = [biSystemMenu]
   Caption = 'Число'
   ClientHeight = 190
   ClientWidth = 400
